@@ -1,15 +1,23 @@
 = riblet
 
-Riblet makes it easy to organize and share .irbrc files.
+Riblet makes it easy to organize and maintain .irbrc files.
 
-== Add and document IRB extension libraries/helpers easily
-	add_on 'ap' do
-	  name    'Awesome Print'
-	  desc    'Pretty print your Ruby objects with style -- in full color and with proper indentation'
-	  install 'gem install awesome_print'
-	  source  'http://github.com/michaeldv/awesome_print'
-	  usage   'ap <object>, options = {}'
-	end
+== Install
+  gem install riblet
+
+== Usage
+Update your .irbrc file to add your favorite libraries with Riblet.
+
+  require 'rubygems'
+  require 'riblet'
+
+  add_on 'ap' do
+    name    'Awesome Print'
+	desc    'Pretty print your Ruby objects with style -- in full color and with proper indentation'
+	install 'gem install awesome_print'
+	source  'http://github.com/michaeldv/awesome_print'
+	usage   'ap <object>, options = {}'
+  end
 
 == Note on Patches/Pull Requests
  
