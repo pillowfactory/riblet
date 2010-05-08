@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "riblet"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Organize your .irbrc and make it shareable}
+    gem.description = %Q{Organize your .irbrc and make it shareable}
     gem.email = "lpillow@gmail.com"
     gem.homepage = "http://github.com/pillowfactory/riblet"
     gem.authors = ["Luke Pillow"]
