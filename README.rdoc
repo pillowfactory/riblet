@@ -11,12 +11,17 @@ Update your .irbrc file to add your favorite libraries with Riblet.
   require 'rubygems'
   require 'riblet'
 
-  add_on 'ap' do
-    name    'Awesome Print'
+  add_on 'wirble' do
+    name    'Wirble'
     desc    'Pretty print your Ruby objects with style -- in full color and with proper indentation'
-    install 'gem install awesome_print'
+    install 'gem install wirble'
     source  'http://github.com/michaeldv/awesome_print'
-    usage   'ap <object>, options = {}'
+    usage   'Auto'
+    
+    init do
+      Wirble.init
+      Wirble.colorize
+    end
   end
 
 == Note on Patches/Pull Requests
