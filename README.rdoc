@@ -13,7 +13,7 @@ Update your .irbrc file to add your favorite libraries with Riblet.
 
   add_on 'ap' do
     name    'Awesome Print'
-	  desc    'Pretty print your Ruby objects with style -- in full color and with proper indentation'
+    desc    'Pretty print your Ruby objects with style -- in full color and with proper indentation'
     install 'gem install awesome_print'
     source  'http://github.com/michaeldv/awesome_print'
     usage   'ap <object>, options = {}'
