@@ -14,5 +14,9 @@ module Riblet
       end
       nil
     end
+
+    def riblet(type=nil)
+      riblets(type)
+    end
   end
 end
