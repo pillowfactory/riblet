@@ -1,5 +1,6 @@
 module Riblet
   class Addon
+    attr_accessor :loaded
     
     def initialize(require_name, required=true)
       @require_name = require_name
@@ -53,13 +54,15 @@ EOF
       definition = self.new(require_name, required)
       definition.instance_eval(&config) if block_given?
       
-      if required && (require require_name)
-        ($irb_add_ons ||= []) << definition
+      if require require_name
+        Riblet.addons << definition
         definition.perform_init
-        puts "#{Color::BOLD}Loaded #{Color::CYAN}#{definition.to_s}#{Color::RESET}"
+        definition.loaded = true
       end
+
+      return definition
     rescue LoadError
-      puts "#{Color::RED}Unable to load: #{Color::YELLOW}#{definition.to_s}#{Color::RED}. #{definition.install_str}#{Color::RESET}"
+      puts "#{Color::RED}Unable to load: #{Color::YELLOW}#{definition.full_name}#{Color::RED}. #{definition.install_str}#{Color::RESET}"
       exit if required
     end
 
