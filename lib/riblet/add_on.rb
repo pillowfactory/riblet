@@ -21,12 +21,32 @@ module Riblet
       "Install with: '#{@install}'" if @install
     end
 
-    def to_s
+    def to_s(type=nil)
+      if type == :usage
+        "#{Color::CYAN}#{self.full_name}#{Color::RESET} - Usage: #{Color::YELLOW}#{self.usage_msg || '<missing>'}#{Color::RESET}"
+      else
+<<-EOF
+#{Color::CYAN}#{@require_name}#{Color::RESET}
+  Name:     #{Color::YELLOW}#{@name}#{Color::RESET}
+  Desc:     #{Color::YELLOW}#{@desc}#{Color::RESET}
+  Install:  #{Color::YELLOW}#{@install}#{Color::RESET}
+  Source:   #{Color::YELLOW}#{@source}#{Color::RESET}
+  Usage:    #{Color::YELLOW}#{@usage}#{Color::RESET}
+
+EOF
+      end
+    end
+
+    def full_name
       if @name
         "#{@name} (#{@require_name})"
       else
         @require_name
       end
+    end
+
+    def usage_msg
+      "#{@usage}" if @usage
     end
 
     def self.load(require_name, required=true, &config)
