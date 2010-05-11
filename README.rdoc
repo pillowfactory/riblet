@@ -6,6 +6,7 @@ Riblet makes it easy to organize and maintain .irbrc files.
   gem install riblet
 
 == Usage
+=== Configuration
 Update your .irbrc file to add your favorite libraries with Riblet.
 
   require 'rubygems'
@@ -24,6 +25,31 @@ Update your .irbrc file to add your favorite libraries with Riblet.
     end
   end
 
+=== IRB Session
+Reference your Riblet config in an IRB session
+  
+  >> riblets
+  Using 4 riblet(s)...
+
+  wirble
+    Name:     Wirble
+    Desc:     Wirble is a set of enhancements to Irb all included together in one easy-to-use package.
+    Install:  gem install wirble
+    Source:   http://github.com/blackwinter/wirble
+    Usage:    Auto
+
+  ...
+  
+View your usage notes of each addon/Riblet
+
+  >> riblets :usage
+  Using 4 riblet(s)...
+
+  Wirble (wirble) - Usage: Auto
+  Awesome Print (ap) - Usage: ap <object>, options = {}
+  Hirb (hirb) - Usage: Hirb.enable
+  looksee (looksee) - Usage: lp <object>
+  
 == Note on Patches/Pull Requests
  
 * Fork the project.
